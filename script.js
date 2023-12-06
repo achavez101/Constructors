@@ -28,7 +28,6 @@ player2.gainXp(9);
 player1.gainXp(5);
 player2.gainXp(2);
 
-
 // console.log(player1.describe());
 // console.log(player2.describe());
 
