@@ -1,44 +1,75 @@
 
+function Player(name) {
+    this.name = name;
+    this.lvl = 1;
+    this.points = 0;
+}
+Player.prototype.gainXp = function (xp) {
+    this.points += xp;
+    if (this.points >= 10) {
+        this.lvl++;
+        this.points -= 10;
+    }
+    console.log(this.describe());
+}
+Player.prototype.describe = function () {
+    return `${this.name} is level ${this.lvl} with ${this.points} experience points`;
+}
 
+const player1 = new Player('Bob');
+const player2 = new Player('Alice');
+
+player1.gainXp(4);
+player2.gainXp(7);
+player1.gainXp(5);
+player2.gainXp(1);
+player1.gainXp(7);
+player2.gainXp(9);
+player1.gainXp(5);
+player2.gainXp(2);
+
+
+// console.log(player1.describe());
+// console.log(player2.describe());
 
 
 // Prototypical Inheritance & call()
-function Shape(name) {
-    this.name = name;
-}
-Shape.prototype.logName = function () {
-    console.log(`Shape Name: ${this.name}`);
-}
-function Rectangle(name, height, width) {
-    Shape.call(this, name); 
-    this.height = height;
-    this.width = width; 
-}
-// Inherits Shape Prototypes
-Rectangle.prototype = Object.create(Shape.prototype);
+// function Shape(name) {
+//     this.name = name;
+// }
+// Shape.prototype.logName = function () {
+//     console.log(`Shape Name: ${this.name}`);
+// }
+// function Rectangle(name, height, width) {
+//     Shape.call(this, name); 
+//     this.height = height;
+//     this.width = width; 
+// }
+// // Inherits Shape Prototypes
+// Rectangle.prototype = Object.create(Shape.prototype);
 
-Rectangle.prototype.logName = function () {
-    console.log(`Rectangle Name: ${this.name}`);
-}
+// Rectangle.prototype.logName = function () {
+//     console.log(`Rectangle Name: ${this.name}`);
+// }
 
-function Circle(name, radius) {
-    Shape.call(this, name); 
-    this.radius = radius; 
-}
-// Inherits Shape Prototypes
-Circle.prototype = Object.create(Shape.prototype);
+// function Circle(name, radius) {
+//     Shape.call(this, name); 
+//     this.radius = radius; 
+// }
+// // Inherits Shape Prototypes
+// Circle.prototype = Object.create(Shape.prototype);
 
-// Set prototype constructors
-Rectangle.prototype.constructor = Rectangle;
-Circle.prototype.constructor = Circle;
+// // Set prototype constructors
+// Rectangle.prototype.constructor = Rectangle;
+// Circle.prototype.constructor = Circle;
 
 
-const rect = new Rectangle('Rectangle 1', 20, 20);
-const cir = new Circle('Circle 1', 30);
+// const rect = new Rectangle('Rectangle 1', 20, 20);
+// const cir = new Circle('Circle 1', 30);
 
 // console.log(rect, cir);
-rect.logName();
-cir.logName();
+// rect.logName();
+// cir.logName();
 
 // console.log(rect.constructor);
 
