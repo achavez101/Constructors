@@ -1,6 +1,5 @@
 
 // Prototypes & the Prototype Chain
-// video 170
 
 function Rectangle(name, width, height) {
     this.name = name;
@@ -11,8 +10,10 @@ function Rectangle(name, width, height) {
     };
 }
 const rect = new Rectangle('Rect', 10, 10);
+console.log(rect.toString);
 
-
+// shows prototype of an object
+console.log(Object.getPrototypeOf(rect));
 
 
 // Working with Object Properties
